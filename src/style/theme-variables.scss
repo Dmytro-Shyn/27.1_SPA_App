@@ -1,0 +1,77 @@
+/* theme-variables.scss */
+body,
+#root {
+  width: 100%; /* Займає всю доступну ширину */
+  height: 100%; /* Якщо потрібно, щоб він займав також всю висоту */
+  box-sizing: border-box; /* Враховує padding та border */
+}
+
+.theme-light {
+  --header-footer-color: #fff;
+  --title-color: #111928;
+  --text-color: #1f2a37;
+  --support-text-color: #637381;
+  --background-color: #ffffff;
+  --second-background-color: #f2f5fc;
+}
+
+.theme-dark {
+  --header-footer-color: #36394c;
+  --title-color: #f9fafb;
+  --text-color: #eff2f7;
+  --support-text-color: #ced4da;
+  --background-color: #222736;
+  --second-background-color: #292e38;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.background-color {
+  background-color: var(--background-color);
+}
+
+.title-theme {
+  color: var(--title-color);
+}
+
+.text-theme {
+  color: var(--text-color);
+}
+.support-text-theme {
+  color: var(--support-text-color);
+}
+
+.second-bg-theme {
+  background-color: var(--second-background-color);
+}
+
+.btn-light-dark {
+  position: relative;
+  width: 60px;
+  height: 32px;
+  appearance: none;
+  outline: none;
+  border-radius: 20px;
+  transition: 0.5s;
+  background-color: var(--support-text-color);
+  &::before {
+    content: "";
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.4s ease;
+    transform: translateX(0px);
+    background-color: var(--background-color);
+  }
+  &:checked[type="checkbox"] {
+    background-color: var(--support-text-color);
+    &::before {
+      transform: translateX(28px);
+    }
+  }
+}
